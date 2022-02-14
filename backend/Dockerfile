@@ -1,4 +1,4 @@
-FROM node:16.14
+FROM node:16.14 AS builder
 
 ENV NODE_ENV build
 
@@ -6,7 +6,7 @@ USER node
 WORKDIR /home/node
 
 COPY package*.json ./
-RUN npm ci
+RUN npm i
 
 COPY --chown=node:node . .
 RUN npm run build \
@@ -25,4 +25,4 @@ COPY --from=builder --chown=node:node /home/node/package*.json ./
 COPY --from=builder --chown=node:node /home/node/node_modules/ ./node_modules/
 COPY --from=builder --chown=node:node /home/node/dist/ ./dist/
 
-CMD ["node", "dist/server.js"]
+CMD ["node", "dist/main.js"]
