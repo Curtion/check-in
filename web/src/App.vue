@@ -10,7 +10,15 @@ import {
 
 <template>
   <n-layout has-sider>
-    <n-layout-sider bordered> 海淀桥 </n-layout-sider>
+    <n-layout-sider
+      collapse-mode="width"
+      :collapsed-width="100"
+      :width="240"
+      show-trigger="arrow-circle"
+      bordered
+    >
+      海淀桥
+    </n-layout-sider>
     <n-layout>
       <n-layout-header bordered>颐和园路</n-layout-header>
       <n-layout-content> 平山道 </n-layout-content>
