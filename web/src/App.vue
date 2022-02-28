@@ -1,21 +1,37 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import {
+  NLayout,
+  NLayoutHeader,
+  NLayoutSider,
+  NLayoutFooter,
+  NLayoutContent,
+} from "naive-ui";
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <n-layout has-sider>
+    <n-layout-sider bordered> 海淀桥 </n-layout-sider>
+    <n-layout>
+      <n-layout-header bordered>颐和园路</n-layout-header>
+      <n-layout-content> 平山道 </n-layout-content>
+      <n-layout-footer bordered>成府路</n-layout-footer>
+    </n-layout>
+  </n-layout>
 </template>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss">
+.n-layout-sider {
+  height: 100vh;
+}
+.n-layout-header {
+  height: 50px;
+  background: #fff;
+}
+.n-layout-content {
+  height: calc(100vh - 100px);
+  background: #fff;
+}
+.n-layout-footer {
+  height: 50px;
+  background: #fff;
 }
 </style>
