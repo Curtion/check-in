@@ -102,6 +102,8 @@ function handleUpdateValue(key: string) {
 .n-layout-content {
   height: calc(100vh - 50px);
   background: #fff;
+  padding: 5px;
+  box-sizing: border-box;
 }
 .n-layout-footer {
   height: 50px;
