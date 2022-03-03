@@ -15,7 +15,8 @@
     ],
     "types": [
       "naive-ui/volar"
-    ]
+    ],
+    "allowSyntheticDefaultImports": true,
   },
   "include": [
     "src/**/*.ts",
