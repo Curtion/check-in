@@ -49,9 +49,10 @@ import {
   InformationOutline,
   StorefrontOutline,
 } from "@vicons/ionicons5";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 const router = useRouter();
-const activeKey = ref<string | null>("overview");
+const route = useRoute();
+const activeKey = ref<string | null>(route.name as string);
 
 function renderIcon(icon: Component) {
   return () => h(NIcon, null, { default: () => h(icon) });
