@@ -87,11 +87,6 @@ const menuOptions: MenuOption[] = [
     ],
   },
   {
-    label: "规则市场",
-    key: "store",
-    icon: renderIcon(StorefrontOutline),
-  },
-  {
     label: "关于",
     key: "about",
     icon: renderIcon(InformationOutline),
