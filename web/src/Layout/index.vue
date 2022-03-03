@@ -47,6 +47,7 @@ import {
   ListOutline,
   DocumentTextOutline,
   InformationOutline,
+  StorefrontOutline,
 } from "@vicons/ionicons5";
 import { useRouter } from "vue-router";
 const router = useRouter();
@@ -83,6 +84,11 @@ const menuOptions: MenuOption[] = [
         icon: renderIcon(DocumentTextOutline),
       },
     ],
+  },
+  {
+    label: "规则市场",
+    key: "store",
+    icon: renderIcon(StorefrontOutline),
   },
   {
     label: "关于",
