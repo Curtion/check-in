@@ -12,10 +12,13 @@
         mode="vertical"
         default-expand-all
         :options="menuOptions"
+        @update:value="handleUpdateValue"
       />
     </n-layout-sider>
     <n-layout>
-      <n-layout-content> <router-view /> </n-layout-content>
+      <n-layout-content>
+        <router-view />
+      </n-layout-content>
       <n-layout-footer bordered>
         本工具由
         <a href="https://github.com/Curtion/check-in" target="__blank">
@@ -27,18 +30,26 @@
   </n-layout>
 </template>
 <script setup lang="ts">
+import { Component, ref, h } from "vue";
 import {
   NLayout,
   NLayoutSider,
   NLayoutFooter,
   NLayoutContent,
   NMenu,
+  NIcon,
 } from "naive-ui";
-import { Component, ref, h } from "vue";
-import { NIcon } from "naive-ui";
 import type { MenuOption } from "naive-ui";
-import { BookOutline } from "@vicons/ionicons5";
-
+import {
+  ColorPaletteOutline,
+  CodeWorkingOutline,
+  AddCircleOutline,
+  ListOutline,
+  DocumentTextOutline,
+  InformationOutline,
+} from "@vicons/ionicons5";
+import { useRouter } from "vue-router";
+const router = useRouter();
 const activeKey = ref<string | null>("overview");
 
 function renderIcon(icon: Component) {
@@ -49,36 +60,40 @@ const menuOptions: MenuOption[] = [
   {
     label: "平台概览",
     key: "overview",
-    icon: renderIcon(BookOutline),
+    icon: renderIcon(ColorPaletteOutline),
   },
   {
     label: "任务管理",
     key: "task",
-    icon: renderIcon(BookOutline),
+    icon: renderIcon(CodeWorkingOutline),
     children: [
       {
         label: "添加任务",
         key: "taskAdd",
-        icon: renderIcon(BookOutline),
+        icon: renderIcon(AddCircleOutline),
       },
       {
         label: "任务列表",
         key: "taskList",
-        icon: renderIcon(BookOutline),
+        icon: renderIcon(ListOutline),
       },
       {
         label: "任务日志",
         key: "taskLog",
-        icon: renderIcon(BookOutline),
+        icon: renderIcon(DocumentTextOutline),
       },
     ],
   },
   {
     label: "关于",
     key: "about",
-    icon: renderIcon(BookOutline),
+    icon: renderIcon(InformationOutline),
   },
 ];
+
+function handleUpdateValue(key: string) {
+  router.push(key);
+}
 </script>
 <style lang="scss">
 .n-layout-sider {
