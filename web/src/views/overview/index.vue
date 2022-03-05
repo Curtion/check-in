@@ -36,6 +36,3 @@
     </n-gi>
   </n-grid>
 </template>
-<script setup lang="ts">
-import { NGrid, NGi, NList, NListItem, NThing, NScrollbar } from "naive-ui";
-</script>
