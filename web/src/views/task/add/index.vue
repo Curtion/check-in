@@ -42,10 +42,10 @@
             </n-grid>
           </n-form-item>
           <n-card v-if="isTagShow('body')" title="请求参数" class="mtb">
-            测试
+            <Paramer :data="formValue.paramer" />
           </n-card>
           <n-card v-if="isTagShow('header')" title="Header" class="mtb">
-            测试
+            <Header :data="formValue.header" />
           </n-card>
           <n-card v-if="isTagShow('cookie')" title="Cookie" class="mtb">
             测试
@@ -86,6 +86,8 @@ import {
   NCheckbox,
 } from "naive-ui";
 import Help from "./components/help.vue";
+import Header from "./components/header.vue";
+import Paramer from "./components/paramer.vue";
 const formRef = ref<FormInst | null>(null);
 const message = useMessage();
 const formValue = reactive({
@@ -93,7 +95,8 @@ const formValue = reactive({
   method: "GET",
   args: ["body", "header"],
   url: "",
-  phone: "",
+  paramer: [],
+  header: [],
 });
 
 const types = [
