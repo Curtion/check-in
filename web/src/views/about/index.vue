@@ -19,7 +19,6 @@ import alipay from "@/assets/img/alipay.jpg";
 <style scoped lang="scss">
 .box {
   display: flex;
-  justify-content: center;
   align-items: center;
   .card {
     width: 600px;
