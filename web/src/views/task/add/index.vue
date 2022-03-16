@@ -77,87 +77,86 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from "vue";
+import { reactive, ref } from 'vue'
+import type { FormInst } from 'naive-ui'
 import {
-  FormInst,
-  useMessage,
-  NSpace,
-  NCheckboxGroup,
   NCheckbox,
-} from "naive-ui";
-import Help from "./components/help.vue";
-import Header from "./components/header.vue";
-import Paramer from "./components/paramer.vue";
-const formRef = ref<FormInst | null>(null);
-const message = useMessage();
+  NCheckboxGroup,
+  NSpace,
+  useMessage,
+} from 'naive-ui'
+import Help from './components/help.vue'
+import Header from './components/header.vue'
+import Paramer from './components/paramer.vue'
+const formRef = ref<FormInst | null>(null)
+const message = useMessage()
 const formValue = reactive({
-  type: "HTTP",
-  method: "GET",
-  args: ["body", "header"],
-  url: "",
+  type: 'HTTP',
+  method: 'GET',
+  args: ['body', 'header'],
+  url: '',
   paramer: [],
   header: [],
-});
+})
 
 const types = [
   {
-    label: "HTTP://",
-    value: "HTTP",
+    label: 'HTTP://',
+    value: 'HTTP',
   },
   {
-    label: "HTTPS://",
-    value: "HTTPS",
+    label: 'HTTPS://',
+    value: 'HTTPS',
   },
-];
+]
 
 const methods = [
   {
-    label: "GET",
-    value: "GET",
+    label: 'GET',
+    value: 'GET',
   },
   {
-    label: "POST",
-    value: "POST",
+    label: 'POST',
+    value: 'POST',
   },
   {
-    label: "PUT",
-    value: "PUT",
+    label: 'PUT',
+    value: 'PUT',
   },
   {
-    label: "DELETE",
-    value: "DELETE",
+    label: 'DELETE',
+    value: 'DELETE',
   },
-];
+]
 const rules = {
   type: {
     required: true,
-    message: "请输入请求类型",
-    trigger: "change",
+    message: '请输入请求类型',
+    trigger: 'change',
   },
   method: {
     required: true,
-    message: "请输入请求方法",
-    trigger: "change",
+    message: '请输入请求方法',
+    trigger: 'change',
   },
   url: {
     required: true,
-    message: "请输入请求路径",
-    trigger: ["input", "blur"],
+    message: '请输入请求路径',
+    trigger: ['input', 'blur'],
   },
-};
+}
 function handleValidateClick(e: MouseEvent) {
-  e.preventDefault();
+  e.preventDefault()
   formRef.value?.validate((errors) => {
     if (!errors) {
-      message.success("Valid");
+      message.success('Valid')
     } else {
-      console.log(errors);
-      message.error("Invalid");
+      message.error('Invalid')
     }
-  });
+  })
 }
 function isTagShow(tag: string) {
-  return formValue.args.includes(tag);
+  return formValue.args.includes(tag)
 }
 </script>
 <style scoped lang="scss">

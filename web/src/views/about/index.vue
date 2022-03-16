@@ -6,15 +6,15 @@
       </p>
       <p>如果本软件对你有帮助，可以考虑进行捐赠，金额随意。</p>
       <p class="alipay">
-        <img :src="alipay" alt="支付宝" width="240" height="360" />
+        <img :src="alipay" alt="支付宝" width="240" height="360">
       </p>
     </n-card>
   </div>
 </template>
 
 <script setup lang="ts">
-import { NCard } from "naive-ui";
-import alipay from "@/assets/img/alipay.jpg";
+import { NCard } from 'naive-ui'
+import alipay from '@/assets/img/alipay.jpg'
 </script>
 <style scoped lang="scss">
 .box {

@@ -1,18 +1,18 @@
 import {
-  create,
-  NInput,
+  NButton,
+  NCard,
   NForm,
   NFormItem,
-  NButton,
-  NGrid,
   NGi,
-  NCard,
+  NGrid,
+  NInput,
   NList,
   NListItem,
-  NThing,
-  NSelect,
   NScrollbar,
-} from "naive-ui";
+  NSelect,
+  NThing,
+  create,
+} from 'naive-ui'
 
 const naive = create({
   components: [
@@ -29,6 +29,6 @@ const naive = create({
     NSelect,
     NScrollbar,
   ],
-});
+})
 
-export default naive;
+export default naive

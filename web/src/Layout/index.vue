@@ -30,71 +30,72 @@
   </n-layout>
 </template>
 <script setup lang="ts">
-import { Component, ref, h } from "vue";
+import type { Component } from 'vue'
+import { h, ref } from 'vue'
 import {
-  NLayout,
-  NLayoutSider,
-  NLayoutFooter,
-  NLayoutContent,
-  NMenu,
   NIcon,
-} from "naive-ui";
-import type { MenuOption } from "naive-ui";
+  NLayout,
+  NLayoutContent,
+  NLayoutFooter,
+  NLayoutSider,
+  NMenu,
+} from 'naive-ui'
+import type { MenuOption } from 'naive-ui'
 import {
-  ColorPaletteOutline,
-  CodeWorkingOutline,
   AddCircleOutline,
-  ListOutline,
+  CodeWorkingOutline,
+  ColorPaletteOutline,
   DocumentTextOutline,
   InformationOutline,
+  ListOutline,
   StorefrontOutline,
-} from "@vicons/ionicons5";
-import { useRouter, useRoute } from "vue-router";
-const router = useRouter();
-const route = useRoute();
-const activeKey = ref<string | null>(route.name as string);
+} from '@vicons/ionicons5'
+import { useRoute, useRouter } from 'vue-router'
+const router = useRouter()
+const route = useRoute()
+const activeKey = ref<string | null>(route.name as string)
 
 function renderIcon(icon: Component) {
-  return () => h(NIcon, null, { default: () => h(icon) });
+  return () => h(NIcon, null, { default: () => h(icon) })
 }
 
 const menuOptions: MenuOption[] = [
   {
-    label: "平台概览",
-    key: "overview",
+    label: '平台概览',
+    key: 'overview',
     icon: renderIcon(ColorPaletteOutline),
   },
   {
-    label: "任务管理",
-    key: "task",
+    label: '任务管理',
+    key: 'task',
     icon: renderIcon(CodeWorkingOutline),
     children: [
       {
-        label: "添加任务",
-        key: "taskAdd",
+        label: '添加任务',
+        key: 'taskAdd',
         icon: renderIcon(AddCircleOutline),
       },
       {
-        label: "任务列表",
-        key: "taskList",
+        label: '任务列表',
+        key: 'taskList',
         icon: renderIcon(ListOutline),
       },
       {
-        label: "任务日志",
-        key: "taskLog",
+        label: '任务日志',
+        key: 'taskLog',
         icon: renderIcon(DocumentTextOutline),
       },
     ],
   },
   {
-    label: "关于",
-    key: "about",
+    label: '关于',
+    key: 'about',
     icon: renderIcon(InformationOutline),
   },
-];
+]
 
 function handleUpdateValue(key: string) {
-  router.push(key);
+  router.push(key)
 }
 </script>
 <style lang="scss">
